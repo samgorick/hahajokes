@@ -10,7 +10,7 @@ class Joke < ApplicationRecord
   end
 
   def random_gif
-    uri = URI.parse("https://api.giphy.com/v1/gifs/random?api_key=ZnyMwXrNuHSmSQcmbcDFmhiSfFbASYSz&tag=#{self.keyword}")
+    uri = URI.parse("https://api.giphy.com/v1/gifs/random?api_key=ZnyMwXrNuHSmSQcmbcDFmhiSfFbASYSz&tag=laugh")
     response = Net::HTTP.get_response(uri)
     body = response.body
     gif = JSON.parse(body)
