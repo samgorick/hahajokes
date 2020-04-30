@@ -1,0 +1,29 @@
+<h1>Submit a new joke!</h1>
+
+<%= form_for @joke do |f| %>
+  <%= f.label :lead_up, "Joke lead up:" %>
+  <%= f.text_field :lead_up %>
+  <br>
+  <br>
+  <%= f.label :punchline, "Joke punchline:" %>
+  <%= f.text_field :punchline %>
+  <br>
+  <br>
+  <%= f.label :keyword, "Gif Keyword:" %>
+  <%= f.text_field :keyword %>
+  <br>
+  <br>
+  <%= f.label :funniness, "Joke funniness (1-10):" %>
+  <%= f.number_field :funniness, min: 0, max: 10 %>
+  <br>
+  <br>
+  <%= f.label :claire_laugh, "Does Claire laugh?" %>
+  <%= f.check_box :claire_laugh %>
+  <br>
+  <br>
+  <%= f.label :category_name, "Category:" %>
+  <%= f.collection_select :category_name, Category.all, :name, :name %>
+  <br>
+  <br>
+  <%= f.submit %>
+<% end %>

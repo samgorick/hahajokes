@@ -1,0 +1,18 @@
+<h1>Individual Joke Page!</h1>
+<br>
+<br>
+<h3 style="color:red;"><%= @joke.punchline %></h3>
+<br>
+<br>
+<%= image_tag(@joke.random_gif) %>
+<br>
+<br>
+<h2>Stats</h2>
+<p>Funniness: <%= @joke.funniness%></p>
+<p>Does it make Claire laugh? <%= @joke.claire_laugh ? "Yes!" : "No"%></p>
+<p>Category: <%= link_to @joke.category_name, category_path(@joke.category_id) %></p>
+<br>
+<br>
+<p><%= link_to "Create new joke", new_joke_path %></p>
+<p><%= link_to "See all jokes", jokes_path %></p> 
+<p><%= link_to "See all categories", categories_path %></p>

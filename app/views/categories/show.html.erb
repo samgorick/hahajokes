@@ -1,0 +1,17 @@
+<h1>All the <%= @category.name %> jokes your grubby little mitts could want!</h1>
+
+<h3>We have <%= pluralize(@category.jokes.count, "joke") %> in the <%= @category.name %> category:</h3>
+
+<ol>
+  <% @category.jokes.each do |joke| %>
+    <li>
+      <h4><%= link_to joke.lead_up, joke_path(joke) %></h4>
+      <h4><%= joke.punchline %></h4>
+      <br>
+    </li>
+  <% end %>
+</ol>
+
+<p><%= link_to "See all jokes", jokes_path %></p>
+<p><%= link_to "See all categories", categories_path %></p>
+

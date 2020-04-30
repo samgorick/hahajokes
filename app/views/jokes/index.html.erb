@@ -1,0 +1,10 @@
+<h1>All jokes</h1>
+  <div class="alert alert-dark" role="alert">
+    <h2><%= link_to "Create new joke", new_joke_path %></h2>
+  </div>
+  <br>
+
+<% @jokes.each do |joke| %>
+  <h4><%= link_to joke.lead_up, joke_path(joke) %></h4>
+  <br>
+<% end %>
