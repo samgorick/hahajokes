@@ -5,8 +5,13 @@ class JokesController < ApplicationController
   end
 
   def create
-    @joke = Joke.create(joke_params)
-    redirect_to joke_path(@joke)
+    @joke = Joke.new(joke_params)
+    if @joke.valid?
+      @joke.save
+      redirect_to joke_path(@joke)
+    else 
+      render :new
+    end
   end
 
   def show
@@ -23,8 +28,13 @@ class JokesController < ApplicationController
 
   def update
     @joke = Joke.find(params[:id])
-    @joke.update(joke_params)
-    redirect_to joke_path(@joke)
+    @joke.assign_attributes(joke_params)
+    if @joke.valid?
+      @joke.save
+      redirect_to joke_path(@joke)
+    else 
+      render :edit
+    end
   end
 
   private

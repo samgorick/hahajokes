@@ -2,7 +2,7 @@
   <h1><%= link_to "Create new joke", new_joke_path %></h1>
 </div>
 
-<h1>All jokes</h1>
+<h1>All jokes | <%= link_to "All categories", categories_path %></h1>
   <br>
 <% @jokes.each do |joke| %>
   <h4><%= link_to joke.lead_up, joke_path(joke) %></h4>

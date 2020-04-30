@@ -1,9 +1,10 @@
-<h1>Choose a category</h1>
+<div class="alert alert-dark" role="alert">
+  <h1><%= link_to "Create new joke", new_joke_path %></h1>
+</div>
 
-<ul>
+<h1><%= link_to "All jokes", jokes_path %> | All categories</h1>
+<br>
   <% @categories.each do |category| %>
-    <li>
-      <h3><%= link_to category.name, category_path(category) %></h3>
-    </li>
+    <h4><%= link_to category.name, category_path(category) %></h4>
+    <br>
   <% end %>
-</ul>
