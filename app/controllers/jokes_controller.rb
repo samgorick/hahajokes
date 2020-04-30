@@ -5,7 +5,7 @@ class JokesController < ApplicationController
   end
 
   def create
-    @joke = Joke.create!(joke_params)
+    @joke = Joke.create(joke_params)
     redirect_to joke_path(@joke)
   end
 
@@ -15,6 +15,16 @@ class JokesController < ApplicationController
 
   def index
     @jokes = Joke.all
+  end
+
+  def edit
+    @joke = Joke.find(params[:id])
+  end
+
+  def update
+    @joke = Joke.find(params[:id])
+    @joke.update(joke_params)
+    redirect_to joke_path(@joke)
   end
 
   private

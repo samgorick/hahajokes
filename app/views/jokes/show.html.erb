@@ -13,6 +13,6 @@
 <p>Category: <%= link_to @joke.category_name, category_path(@joke.category_id) %></p>
 <br>
 <br>
-<p><%= link_to "Create new joke", new_joke_path %></p>
+<p><%= link_to "Create new joke", new_joke_path %> | <%= link_to "Edit this joke", edit_joke_path(@joke)%></p>
 <p><%= link_to "See all jokes", jokes_path %></p> 
 <p><%= link_to "See all categories", categories_path %></p>
