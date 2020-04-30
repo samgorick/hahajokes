@@ -1,5 +1,17 @@
 <h1>Submit a new joke!</h1>
 
+<% if joke.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(joke.errors.count, "error") %> prohibited this joke from being saved:</h2>
+ 
+    <ul>
+    <% joke.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for joke do |f| %>
   <%= f.label :lead_up, "Joke lead up:" %>
   <%= f.text_area :lead_up %>

@@ -1,5 +1,6 @@
 class Joke < ApplicationRecord
   belongs_to :category
+  validates_presence_of :lead_up, :punchline, :funniness, :category_id
 
   def category_name=(name)
     self.category = Category.find_or_create_by(name: name)
