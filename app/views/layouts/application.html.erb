@@ -17,6 +17,8 @@
   <body>
     <div class="container">
       <h2><%= link_to "Haha Jokes!", jokes_path %></h2>
+        <div id="affirms" style="color: green;"><%= flash[:affirms] %></div>
+        <div id="alerts" style="color: red;"><%= flash[:alerts] %></div>
         <%= yield %>
     </div>
   </body>

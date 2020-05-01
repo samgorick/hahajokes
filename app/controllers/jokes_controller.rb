@@ -6,11 +6,13 @@ class JokesController < ApplicationController
 
   def create
     @joke = Joke.new(joke_params)
-    if @joke.valid?
-      @joke.save
-      redirect_to joke_path(@joke)
+    if @joke.save
+      flash[:affirms] = "Joke successfully created!"
+      redirect_to @joke
     else 
-      render :new
+      flash[:alerts] = "Oops! Something went wrong."
+      flash[:errors] = @joke.errors.full_messages
+      redirect_to new_joke_path
     end
   end
 
@@ -31,8 +33,11 @@ class JokesController < ApplicationController
     @joke.assign_attributes(joke_params)
     if @joke.valid?
       @joke.save
-      redirect_to joke_path(@joke)
+      flash[:affirms] = "Joke successfully updated!"
+      redirect_to @joke
     else 
+      flash[:alerts] = "Oops! Something went wrong."
+      flash[:errors] = @joke.errors.full_messages
       render :edit
     end
   end
